@@ -3,3 +3,15 @@
 	height: auto;
 	display: inline-block;
 }
+
+.input {
+	float: right;
+	clear: both;
+	text-align: left;
+}
+
+.animals {
+	margin: 0 auto;
+	width: 80%;
+	display: inline-block;
+}
