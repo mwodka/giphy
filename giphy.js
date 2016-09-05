@@ -38,11 +38,11 @@ function createImages(obj) {
 	for (var i = 0; i < obj.length; i++) {
 		var newImage = $('<img>');
 		newImage.attr({
-			src: obj[i].images.fixed_width_still.url,
+			src: obj[i].images.fixed_height_still.url,
 			'class': 'gif',
 			'data-state': 'still',
-			'data-still': obj[i].images.fixed_width_still.url,
-			'data-animate': obj[i].images.fixed_width.url});
+			'data-still': obj[i].images.fixed_height_still.url,
+			'data-animate': obj[i].images.fixed_height.url});
 
 		var newDiv = $('<div>');
 		newDiv.attr('class', 'giphy-images');
