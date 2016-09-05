@@ -1,5 +1,6 @@
 var myArray = ['cat', 'dog', 'lizard', 'hamster', 'guinea pig', 'koala', 'bats', 'kanagroo', 'goat'];
-var giph = 'http://api.giphy.com/v1/gifs/search?limit=10&q=';
+var giph = 'http://api.giphy.com/v1/gifs/search?&limit='
+var q = '&q='; 
 var key = '&api_key=dc6zaTOxFJmzC';
 
 function makeButtons() {
@@ -10,13 +11,18 @@ function makeButtons() {
 		var newButton = $('<button>');
 		newButton.attr('class', 'btn');
 		newButton.html(myArray[i]);
+		var divider = $('<div>');
+		divider.attr('class', 'divider');
 		$('#animalbuttons').append(newButton);
+		$('#animalbuttons').append(divider);
 	}
 	createButtonListeners();
 }
 
 function getImages(img) {
-	var search = giph + img + key;
+	var e = document.getElementById('max-results');
+	e = e.options[e.selectedIndex].text;
+	var search = giph + e + q + img + key;
 	$.ajax({
 		url: search,
 		method: 'GET'
@@ -37,7 +43,12 @@ function createImages(obj) {
 			'data-state': 'still',
 			'data-still': obj[i].images.fixed_width_still.url,
 			'data-animate': obj[i].images.fixed_width.url});
-		$('.animals').append(newImage);
+
+		var newDiv = $('<div>');
+		newDiv.attr('class', 'giph-images');
+		newDiv.append('rating: ' + obj[i].rating + '<br>');
+		newDiv.append(newImage);
+		$('.animals').append(newDiv);
 	}
 	createImageListeners();
 }
