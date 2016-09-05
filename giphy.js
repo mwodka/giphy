@@ -45,7 +45,7 @@ function createImages(obj) {
 			'data-animate': obj[i].images.fixed_width.url});
 
 		var newDiv = $('<div>');
-		newDiv.attr('class', 'giph-images');
+		newDiv.attr('class', 'giphy-images');
 		newDiv.append('rating: ' + obj[i].rating + '<br>');
 		newDiv.append(newImage);
 		$('.animals').append(newDiv);
